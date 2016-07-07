@@ -23,7 +23,7 @@
 			width: 100%;
 			height: 100%;
 			position: absolute;
-			transition: 1s;
+			transition: 1.5s;
 		}
 
 		.user-btn {
@@ -84,7 +84,7 @@
 			display: inline-block;
 
 			background: #FFF;
-			width: calc(100% - 20px);
+			width: calc(100% - 40px);
 			text-align: center;
 			font-family: "Lato", sans-serif;
 			font-size: 1.2em;
@@ -171,7 +171,7 @@
 			box-sizing: border-box;
 			position: absolute;
 			content: "";
-			border: 1px solid #DDD;
+			border: 0px solid #6e9ecf;
 			width: calc(100% - 2px);
 			height: calc(100% - 2px);
 			border-radius: 500px;
@@ -217,23 +217,25 @@
 	<script src="../common/jquery.min.js"></script>
 	<script src="../common/anime.min.js"></script>
 	<script type="text/javascript">
-		var anim;
 
 		$("#sign-up-btn").click(function() {
+
 			anime({
 				targets: ".sign-up",
 				height: {
 					value: "600px",
 					delay: 250
 				},
-				width: "400px"
+				width: "400px",
+				duration: 1000
 			});
 			
-			$(".container").css({background: "rgba(0,0,0,0.5)"});
+			$(".container").css({background: "rgba(0,0,0,0.25)"});
 
 		});
 
 		var close_modal = function() {
+
 			anime({
 				targets: ".sign-up",
 				width: {
@@ -241,30 +243,37 @@
 					delay: 250
 				},
 				height: "50px",
-				easing: "easeInElastic"
+				easing: "easeInElastic",
+				duration: 1000
 			});
+
 			$(".container").css({background: "rgba(0,0,0,0)"});
+
 		};
 
 		$("#close-sign-up").click(close_modal);
 		$(".submit").click(close_modal);
 
 		$("input").focus(function() {
+
 			$(this).parent().addClass("selected");
+
 		}).blur(function() {
-			if ($(this).val() == "") {
-				$(this).parent().removeClass("selected");
-			}
+
+			if ($(this).val() == "") $(this).parent().removeClass("selected");
+
 		}).keyup(function() {
 
 			var done = true;
 
 			$.each($("input"), function(i, elem) {
+
 				if ($(elem).val() == "") done = false;
-				console.log($(elem).val());
+
 			});
 
 			if (done) {
+
 				anime({
 					targets: ".submit",
 					fill: {
@@ -272,18 +281,20 @@
 						delay: 250
 					}
 				});
+
 				anime({
 					targets: ".submit-flash",
 					height: "130%",
 					width: "130%",
 					left: "-15%",
 					top: "-15%",
-					"border-width": ["1px", "5px"],
-					"border-color": "#6e9ecf"
+					"border-width": ["0px", "7px"]
 				});
 
 				$(".submit").addClass("completed");
+
 			}
+
 		});
 	</script>
 </body>
