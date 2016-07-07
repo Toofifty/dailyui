@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html>
+	<title>Daily UI Design Challenge</title>
+	<link rel="stylesheet" href="common/reset.css"/>
+	<style>
+		@import 'https://fonts.googleapis.com/css?family=Secular+One|Nova+Mono';
+
+		body {
+			background: #272625;
+			color: #5e5e5f;
+			font-family: "Secular One", sans-serif;
+		}
+
+		.content {
+			padding: 10%;
+			margin: auto;
+			max-width: 900px;
+		}
+
+		.title {
+			background: #fff1b9;
+			padding: 20px;
+			position: relative;
+		}
+
+		.title h4 {
+			font-size: 1.4em;
+		}
+
+		.title:after {
+			position: absolute;
+			border: 1px solid rgba(0,0,0,0);
+			content: "";
+			width: 100%;
+			height: 100%;
+			right: -5px;
+			bottom: -5px;
+			border-right: 1px solid #fff1b9;
+			border-bottom: 1px solid #fff1b9;
+		}
+
+		.challenges {
+			padding: 20px;
+			font-size: 1.2em;
+			font-family: "Nova Mono", monospace;
+		}
+
+		.challenges a {
+			text-decoration: none;
+			color: #5e5e5f;
+			transition: 0.25s;
+			cursor: default;
+			position: relative;
+			margin: 5px;
+			padding-bottom: 2px;
+			display: inline-block;
+		}
+
+		.complete-btn:hover {
+			color: #fff1b9;
+			cursor: pointer;
+		}
+
+		.complete-btn:before {
+			position: absolute;
+			content: "";
+			bottom: 0;
+			left: 50%;
+			height: 1px;
+			width: 0%;
+			background: rgba(0,0,0,0);
+			transition: 0.25s;
+		}
+
+		.complete-btn:hover:before {
+			width: 100%;
+			left: 0%;
+			background: #fff1b9;
+		}
+
+		footer {
+			position: absolute;
+			bottom: 0;
+			padding: 20px;
+			left: 50%;
+			transform: translateX(-50%);
+		}
+
+		.footer-link {
+			text-decoration: none;
+			color: #5e5e5f;
+			transition: 0.25s;
+		}
+
+		.footer-link:hover {
+			color: #fff1b9;
+		}
+	</style>
+</html>
+<body>
+	<div class="content">
+		<div class="title">
+			<h4>Daily UI Challenges by Toofifty</h4>
+		</div>
+		<div class="challenges"></div>
+	</div>
+
+	<footer>
+		<a class="footer-link" href="www.dailyui.co">dailyui</a> &middot; <a class="footer-link" href="www.github.com/Toofifty/dailyui">github source</a>
+	</footer>
+
+	<script type="text/javascript">
+		var numCompleted = 1;
+		var numTotal = 100;
+
+		function pad(n, w) {
+			n = n + "";
+			return n.length >= w ? n : new Array(w - n.length + 1).join("0") + n;
+		}
+
+		var l = document.getElementsByClassName("challenges")[0];
+
+		for (var i = 1; i <= numTotal; i++) {
+			var b = document.createElement("a");
+			b.innerHTML = pad(i, 3);
+			if (i <= numCompleted) {
+				b.setAttribute("href", pad(i, 3) + "/index.html");
+				b.className = "complete-btn";
+			}
+			l.appendChild(b);
+		}
+	</script>
+</body>

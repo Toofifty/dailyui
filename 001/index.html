@@ -1,0 +1,289 @@
+<!DOCTYPE html>
+<html>
+	<title>#001 Sign Up</title>
+	<link rel="stylesheet" href="../common/reset.css"/>
+	<style>
+		@import 'https://fonts.googleapis.com/css?family=Lato';
+
+		body {
+			background: #de593a;
+			color: #FFF;
+		}
+
+		.content {
+			position: absolute;
+			left: 50%;
+			top: 50%;
+			transform: translate(-50%, -50%);
+			width: 90%;
+			text-align: center;
+		}
+
+		.container {
+			width: 100%;
+			height: 100%;
+			position: absolute;
+			transition: 1s;
+		}
+
+		.user-btn {
+			background: none;
+			border: 1px solid #FFF;
+			color: #FFF;
+			padding: 15px;
+			border-radius: 5px;
+			font-family: "Lato", sans-serif;
+			font-size: 1em;
+			width: 100px;
+			margin: 10px;
+			text-align: center;
+			display: inline-block;
+			transition: 0.1s;
+
+			overflow: hidden;
+		}
+
+		.user-btn:hover {
+			transform: translateY(-2px);
+			cursor: pointer;
+			box-shadow: 0px 2px 0px #da4624;
+		}
+
+		.user-btn:active {
+			color: #de593a;
+			background: #FFF;
+			transform: translateY(0px);
+			box-shadow: 0px -2px 0px #da4624;
+		}
+
+		.sign-up {
+			position: fixed;
+
+			height: 50px;
+			width: 0;
+
+			/*height: 500px;
+			width: 500px;*/
+
+			max-width: 100%;
+
+			background: #FFF;
+			top: 50%;
+			left: 50%;
+			transform: translate(-50%, -50%);
+			overflow: hidden;
+
+			border-radius: 5px;
+
+			//box-shadow: 0px 0px 10px rgba(0,0,0,0.4);
+
+			z-index: 5;
+		}
+
+		.sign-up h4 {
+			display: inline-block;
+
+			background: #FFF;
+			width: calc(100% - 20px);
+			text-align: center;
+			font-family: "Lato", sans-serif;
+			font-size: 1.2em;
+			padding: 20px;
+			text-transform: uppercase;
+
+			color: #6e9ecf;
+		}
+
+		.cross {
+			position: absolute;
+			right: 0;
+			top: 0;
+			padding: 20px;
+			font-family: "Lato", sans-serif;
+			vertical-align: middle;
+			transform: translateY(-1px);
+
+			color: #6e9ecf;
+		}
+
+		.cross:hover {
+			cursor: pointer;
+		}
+
+		.input {
+			display: block;
+			width: 80%;
+			margin: auto;
+			height: 2em;
+			margin-top: 2em;
+		}
+
+		input[type="text"], input[type="password"] {
+			border: none;
+			border-bottom: 1px solid #de593a;
+			width: 100%;
+			height: 2em;
+			z-index: 10;
+			font-size: 1em;
+			color: #da4624;
+			font-family: "Lato", sans-serif;
+		}
+
+		input:focus, input:active {
+			border-bottom: 1px solid #da4624;
+			outline: none;
+		}
+
+		.input {
+			position: relative;
+		}
+
+		.input:before {
+			content: attr(dummy);
+			display: inline-block;
+			position: absolute;
+			color: #de593a;
+			font-family: "Lato", sans-serif;
+			left: 0;
+			top: 1em;
+			text-transform: uppercase;
+			font-size: 0.75em;
+			transition: 0.5s;
+		}
+
+		.selected:before {
+			//transform: translateY(-1.5em);
+			left: 100%;
+			transform: translateX(-100%);
+			color: #da4624;
+		}
+
+		.submit {
+			position: relative;
+			height: 100px;
+			width: 100px;
+			margin: auto;
+			margin-top: 90px;
+			fill: #DDD;
+		}
+
+		.submit-flash {
+			box-sizing: border-box;
+			position: absolute;
+			content: "";
+			border: 1px solid #DDD;
+			width: calc(100% - 2px);
+			height: calc(100% - 2px);
+			border-radius: 500px;
+		}
+
+		.completed {
+			cursor: pointer;
+			transition: 0.1s;
+		}
+
+		.completed:hover {
+			transform: scale(1.05);
+		}
+
+		.completed:active {
+			transform: scale(0.95);
+		}
+	</style>
+</html>
+<body>
+	<div class="container">
+		<div class="content">
+			<div class="sign-up">
+				<h4>Sign up</h4><a id="close-sign-up" class="cross">x</a>
+				<span class="input" dummy="Email"><input type="text"></span>
+				<span class="input" dummy="Username"><input type="text"></span>
+				<span class="input" dummy="Password"><input type="password"></span>
+				<span class="input" dummy="Confirm"><input type="password"></span>
+
+				<div class="submit">
+					<span class="submit-flash"></span>
+					<svg version="1.1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 44 44" xmlns:xlink="http://www.w3.org/1999/xlink" enable-background="new 0 0 44 44">
+						<path d="m22,0c-12.2,0-22,9.8-22,22s9.8,22 22,22 22-9.8 22-22-9.8-22-22-22zm12.7,15.1l0,0-16,16.6c-0.2,0.2-0.4,0.3-0.7,0.3-0.3,0-0.6-0.1-0.7-0.3l-7.8-8.4-.2-.2c-0.2-0.2-0.3-0.5-0.3-0.7s0.1-0.5 0.3-0.7l1.4-1.4c0.4-0.4 1-0.4 1.4,0l.1,.1 5.5,5.9c0.2,0.2 0.5,0.2 0.7,0l13.4-13.9h0.1c0.4-0.4 1-0.4 1.4,0l1.4,1.4c0.4,0.3 0.4,0.9 0,1.3z"/>
+					</svg>
+				</div>
+			</div>
+
+			<a id="log-in-btn" class="user-btn">Log in</a>
+			<a id="sign-up-btn" class="user-btn">Sign up</a>
+		</div>
+	</div>
+
+	<script src="../common/jquery.min.js"></script>
+	<script src="../common/anime.min.js"></script>
+	<script type="text/javascript">
+		var anim;
+
+		$("#sign-up-btn").click(function() {
+			anime({
+				targets: ".sign-up",
+				height: {
+					value: "600px",
+					delay: 250
+				},
+				width: "400px"
+			});
+			
+			$(".container").css({background: "rgba(0,0,0,0.5)"});
+
+		});
+
+		var close_modal = function() {
+			anime({
+				targets: ".sign-up",
+				width: {
+					value: "0px",
+					delay: 250
+				},
+				height: "50px",
+				easing: "easeInElastic"
+			});
+			$(".container").css({background: "rgba(0,0,0,0)"});
+		};
+
+		$("#close-sign-up").click(close_modal);
+		$(".submit").click(close_modal);
+
+		$("input").focus(function() {
+			$(this).parent().addClass("selected");
+		}).blur(function() {
+			if ($(this).val() == "") {
+				$(this).parent().removeClass("selected");
+			}
+		}).keyup(function() {
+
+			var done = true;
+
+			$.each($("input"), function(i, elem) {
+				if ($(elem).val() == "") done = false;
+				console.log($(elem).val());
+			});
+
+			if (done) {
+				anime({
+					targets: ".submit",
+					fill: {
+						value: "#6e9ecf",
+						delay: 250
+					}
+				});
+				anime({
+					targets: ".submit-flash",
+					height: "130%",
+					width: "130%",
+					left: "-15%",
+					top: "-15%",
+					"border-width": ["1px", "5px"],
+					"border-color": "#6e9ecf"
+				});
+
+				$(".submit").addClass("completed");
+			}
+		});
+	</script>
+</body>
