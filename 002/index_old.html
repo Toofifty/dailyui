@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>#002 Credit Card Checkout</title>
+		<link rel="stylesheet" href="../common/reset.css"/>
+		<style>
+			@import 'https://fonts.googleapis.com/css?family=Lato';
+
+			/* colors
+			 * #8592ac (light header)
+			 * #594e4c (dark bg)
+			 * #7c665c (lighter bg)
+			 * #dca186 (light text)
+			 */
+
+			body {
+				background: #dca186;
+				color: #dca186;
+			}
+
+			.content {
+				background: #7c665c;
+				position: absolute;
+				top: 50%;
+				left: 50%;
+				transform: translate(-50%, -50%);
+				box-shadow: 0px 2px 2px rgba(0,0,0,0.5);
+
+				display: flex;
+			}
+
+			.checkout-items {
+				background: #DDD;
+				padding: 5px;
+				overflow: scroll;
+				max-height: 40vh;
+				display: inline-block;
+				flex-grow: 1;
+			}
+
+			.item {
+				margin: 10px;
+				position: relative;
+				box-shadow: 0px 2px 2px rgba(0,0,0,0.5);
+				width: 120px;
+				height: 120px;
+				overflow: hidden;
+			}
+
+				.item > img {
+					height: 100%;
+				}
+
+				.item:before, .item:after {
+					position: absolute;
+					font-family: "Lato", sans-serif;
+					width: calc(100% - 8px);
+					text-align: left;
+					text-transform: uppercase;
+					background: rgba(0,0,0,0.5);
+					padding: 4px;
+				}
+
+				.item:before {
+					content: attr(item-name);
+					top: 0;
+				}
+
+				.item:after {
+					content: attr(item-price);
+					bottom: 0;
+				}
+
+			.right-section {
+				background: #594e4c;
+			}
+
+			.header {
+				color: #8592ac;
+				padding: 20px;
+				font-family: "Lato", sans-serif;
+				text-transform: uppercase;
+				text-align: center;
+				letter-spacing: 2px;
+			}
+
+			.cross {
+				position: absolute;
+				right: 0;
+				top: 0;
+				padding: 20px;
+				font-family: "Lato", sans-serif;
+				vertical-align: middle;
+				transform: translateY(-1px);
+
+				color: #6e9ecf;
+			}
+
+			.cross:hover {
+				cursor: pointer;
+			}
+
+			.payment {
+				display: flex;
+			}
+
+			.payment-select {
+				background: #7c665c;
+				padding: 5px;
+				width: 490px;
+				display: inline-block;
+				flex-grow: 1;
+			}
+
+				.payment-opt-btn {
+					padding: 20px;
+					text-align: center;
+					border: 1px solid rgba(0,0,0,0);
+				}
+
+				.payment-opt-btn > img {
+					width: 200px;
+					height: 60px;
+				}
+
+				.payment-opt-btn:hover {
+					border-color: #594e4c;
+				}
+
+			.credit-card-payment {
+				flex-grow: 5;
+			}
+		</style>
+	</head>
+	<body>
+		<div class="content">
+			<div class="checkout-items">
+				<div class="item" item-name="One dog" item-price="$3.50">
+					<img src="http://placehold.it/120x120"/> 
+				</div>
+				<div class="item" item-name="Vintage Clutch Bag" item-price="$0.99">
+					<img src="img/vintage-clutch-bag.jpg"/>
+				</div>
+				<div class="item" item-name="Red Canoe" item-price="$32.00">
+					<img src="img/red-canoe.jpg"/>
+				</div>
+			</div>
+			<div class="right-section">
+				<div class="header">
+					<h4>Select Payment</h4><a class="cross">x</a>
+				</div>
+				<div class="payment">
+					<div class="payment-select">
+						<div class="payment-opt-btn">
+							<img src="img/paypal.png"/>
+						</div>
+						<div class="payment-opt-btn">
+							<img src="img/visa-mastercard.png"/>
+						</div>
+					</div>
+					<div class="credit-card-payment">
+						<a>dicks</a>
+					</div>
+				</div>
+			</div>
+		</div>
+	</body>
+</html>

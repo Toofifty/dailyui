@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>#002 Credit Card Checkout</title>
+		<link rel="stylesheet" href="../common/reset.css"/>
+		<style>
+			@import 'https://fonts.googleapis.com/css?family=Lato';
+
+			/* colors
+			 * #8592ac (light header)
+			 * #594e4c (dark bg)
+			 * #7c665c (lighter bg)
+			 * #dca186 (light text)
+			 */
+
+			* {
+				box-sizing: border-box;
+			}
+
+			body {
+				background: #594e4c;
+			}
+
+			.card {
+				font-family: "Lato", sans-serif;
+				box-shadow: 0 0 20px #222;
+				border: 1px solid #FFF;
+				background: #AAA;
+				width: 500px;
+				height: 300px;
+				border-radius: 25px;
+				position: absolute;
+				top: 50%;
+				left: 50%;
+				transform: translate(-50%, -50%);
+				display: flex;
+				overflow: hidden;
+			}
+
+			.details:before {
+				content: "$";
+				position: absolute;
+				font-size: 20em;
+				color: rgba(0, 0, 0, 0.1);
+				text-shadow: none;
+				left: 5%;
+				z-index: -1;
+			}
+
+			.details {
+				color: #fff;
+				text-shadow: 0px 0px 5px #222;
+				padding: 20px;
+				flex-grow: 1;
+				text-align: center;
+				overflow: hidden;
+			}
+
+				.details > p {
+					padding: 10px 0;
+					margin-bottom: 0;
+					margin-top: auto;
+				}
+
+				.details > .value {
+					font-size: 1.4em;
+				}
+
+			.payment {
+				background: #DDD;
+				border-left: 1px solid #FFF;
+				flex-grow: 9;
+				z-index: 1;
+				overflow: hidden;
+			}
+
+				.options {
+					min-width: 100%;
+					height: 43px;
+					border-bottom: 1px solid #FFF;
+					background: #CCC;
+				}
+
+				.payment-opt-btn {
+					padding: 5px;
+					width: 50%;
+					display: inline-block;
+					transition: 0.5s;
+					text-align: center;
+					position: relative;
+				}
+
+				.payment-opt-btn:hover {
+					cursor: pointer;
+				}
+
+				.payment-opt-btn:before {
+					width: 5px;
+					height: 90%;
+					content: "";
+					background: #888;
+					position: absolute;
+					left: 2px;
+					top: 0;
+					border: none;
+				}
+
+				.payment-opt-btn:hover:before {
+					background: #009cde;
+				}
+
+			.btn-sel {
+				background: #DDD;
+			}
+
+			.btn-sel:before {
+				background: #009cde;
+			}
+
+			.card-payment {
+
+			}
+
+			/*input {
+				font-size: 1.2em;
+				border: none;
+			}
+
+				.input-large {
+					width: 100%;
+				}*/
+		</style>
+	</head>
+	<body>
+		<div class="card">
+			<div class="details">
+				<p>Item total</p>
+				<p class="value">49.95</p><br>
+				<p>Shipping</p>
+				<p class="value">12.00</p><br>
+				<p>Total</p>
+				<p class="value">51.95</p>
+			</div>
+			<div class="payment">
+				<div class="options">
+					<div class="payment-opt-btn">
+						<img src="img/paypal.png" height="30"/>
+					</div><div class="payment-opt-btn btn-sel">
+						<img src="img/visa-mastercard.png" height="30"/>
+					</div>
+				</div>
+				<div class="card-payment">
+					<input class="input-large" type="number" name="cardno" placeholder="0000-0000-0000-0000">
+					<input class="input-small" type="number" name="exp" placeholder="00/00">
+					<input class="input-small" type="number" name="bsb" placeholder="000">
+				</div>
+			</div>
+		</div>
+	</body>
+</html>
